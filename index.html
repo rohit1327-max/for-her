@@ -186,7 +186,39 @@ Keep smiling ❤️
 
 <script>
 
-/* JavaScript will go here */
+const message =
+`I hope this brings a smile to your face ❤️
+
+I wanted to make something just for you.
+
+So...
+
+Here's a little surprise.`;
+
+let i = 0;
+
+function typeWriter() {
+    if (i < message.length) {
+        document.getElementById("typing").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+    }
+}
+
+setTimeout(() => {
+    document.getElementById("loading").style.display = "none";
+    document.querySelector(".container").style.display = "block";
+    typeWriter();
+}, 2000);
+
+document.getElementById("openBtn").onclick = function () {
+    window.open(
+        "https://drive.google.com/file/d/1hN9n4_NLexQ2E2qEyYft-QwKOGLjHD_-/preview",
+        "_blank"
+    );
+
+    document.getElementById("ending").style.display = "block";
+};
 
 </script>
 
