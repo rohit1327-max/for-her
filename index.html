@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Surprise For You ❤️</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:linear-gradient(135deg,#ffd6e7,#fff);
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+width:90%;
+max-width:450px;
+text-align:center;
+}
+
+h1{
+color:#ff3b7d;
+}
+
+button{
+background:#ff3b7d;
+color:white;
+padding:15px 30px;
+border:none;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+margin-top:20px;
+}
+
+video{
+width:100%;
+display:none;
+margin-top:20px;
+border-radius:15px;
+}
+
+#end{
+display:none;
+margin-top:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>❤️ Hey ❤️</h1>
+
+<p>
+I hope this brings a smile to your face.<br><br>
+
+I made something especially for you.<br><br>
+
+Here's a little surprise...
+</p>
+
+<button onclick="playVideo()">
+🎁 Open Your Surprise
+</button>
+
+<video id="video" controls>
+<source src="video.mp4" type="video/mp4">
+</video>
+
+<div id="end">
+<h2>❤️ Thank You ❤️</h2>
+
+<p>
+I hope this made your day a little brighter.
+Keep smiling ❤️
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function playVideo(){
+
+document.querySelector("button").style.display="none";
+
+let video=document.getElementById("video");
+
+video.style.display="block";
+
+video.play();
+
+video.onended=function(){
+
+document.getElementById("end").style.display="block";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
