@@ -1,224 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Saniya ❤️</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>A Little Surprise ❤️</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:'Poppins',sans-serif;
-background:linear-gradient(135deg,#ffd6e8,#fff5f8);
-overflow:hidden;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-}
-
-#loading{
-position:fixed;
-width:100%;
-height:100%;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#ffd6e8,#fff5f8);
-z-index:999;
-}
-
-.heart{
-width:80px;
-height:80px;
-background:#ff4f8b;
-transform:rotate(-45deg);
-animation:beat 1s infinite;
-position:relative;
-margin-bottom:20px;
-}
-
-.heart::before,
-.heart::after{
-content:"";
-width:80px;
-height:80px;
-background:#ff4f8b;
-border-radius:50%;
-position:absolute;
-}
-
-.heart::before{
-top:-40px;
-left:0;
-}
-
-.heart::after{
-left:40px;
-top:0;
-}
-
-.container{
-display:none;
-width:100%;
-padding:25px;
-}
-
-.card{
-max-width:420px;
-margin:auto;
-background:rgba(255,255,255,.75);
-backdrop-filter:blur(18px);
-border-radius:25px;
-padding:35px;
-text-align:center;
-box-shadow:0 15px 40px rgba(0,0,0,.15);
-}
-
-h1{
-font-family:'Great Vibes',cursive;
-font-size:58px;
-color:#ff3f7f;
-margin-bottom:20px;
-}
-
-#typing{
-font-size:18px;
-line-height:1.8;
-min-height:140px;
-white-space:pre-line;
-}
-
-button{
-margin-top:25px;
-padding:16px 35px;
-border:none;
-border-radius:40px;
-background:#ff3f7f;
-color:white;
-font-size:18px;
-cursor:pointer;
-transition:.3s;
-}
-
-button:hover{
-transform:scale(1.05);
-}
-
-#ending{
-display:none;
-margin-top:30px;
-}
-
-#ending h2{
-font-size:50px;
-}
-
-@keyframes beat{
-
-50%{
-transform:rotate(-45deg) scale(1.15);
-}
-
-}
-
-</style>
-
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="hearts"></div>
-
-<div id="loading">
-
-<div class="heart"></div>
-
-<h2>Preparing something special...</h2>
-
+<div id="start">
+  <button id="heartBtn">❤️<br>Poke Me</button>
 </div>
 
-<div class="container">
-
-<div class="card">
-
-<h1>Hey Anu ❤️</h1>
-
-<p id="typing"></p>
-
-<button id="openBtn">
-
-🎁 Open Your Surprise
-
-</button>
-
-<div id="ending">
-
-<p>
-
-Thank you for watching ❤️.
-
-</p>
-
+<div id="slideshow" style="display:none;">
+  <img id="photo" src="" alt="Photo">
+  <audio id="song" src="song.mp3"></audio>
 </div>
 
+<div id="final" style="display:none;">
+  <h1>Some songs are written for everyone...</h1>
+  <h2>This one was written with you in mind.</h2>
+  <p>❤️ Rohit</p>
 </div>
 
-</div>
-
-<script>
-
-const message =
-`I hope this brings a smile to your face. 
-
-I wanted to make something a friend.
-
-Sometimes words are difficult to say...
-
-So I thought I'd make something instead.
-
-I hope you enjoy it. 🌸`;
-
-let i = 0;
-
-function typeWriter() {
-    if (i < message.length) {
-        document.getElementById("typing").innerHTML += message.charAt(i);
-        i++;
-        setTimeout(typeWriter, 40);
-    }
-}
-
-setTimeout(() => {
-    document.getElementById("loading").style.display = "none";
-    document.querySelector(".container").style.display = "block";
-    typeWriter();
-}, 2000);
-
-document.getElementById("openBtn").onclick = function () {
-    window.open(
-        "https://drive.google.com/file/d/1hN9n4_NLexQ2E2qEyYft-QwKOGLjHD_-/preview",
-        "_blank"
-    );
-
-    document.getElementById("ending").style.display = "block";
-};
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
