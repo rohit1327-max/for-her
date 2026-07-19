@@ -1,15 +1,8 @@
-const photos = [
-"photo1.jpg",
-"photo2.jpg",
-"photo3.jpg",
-"photo4.jpg",
-"photo5.jpg",
-"photo6.jpg",
-"photo7.jpg",
-"photo8.jpg",
-"photo9.jpg",
-"photo10.jpg"
-];
+const photos = [];
+
+for (let i = 1; i <= 20; i++) {
+  photos.push(`photos/photo${i}.jpeg`);
+}
 
 let current = 0;
 
@@ -20,25 +13,31 @@ const photo = document.getElementById("photo");
 const song = document.getElementById("song");
 const final = document.getElementById("final");
 
-heartBtn.onclick = () => {
-    start.style.display = "none";
-    slideshow.style.display = "flex";
+heartBtn.addEventListener("click", () => {
+  // Hide the start screen
+  start.style.display = "none";
 
-    song.play();
+  // Show the slideshow
+  slideshow.style.display = "flex";
+
+  // Start the music
+  song.play();
+
+  // Show the first photo
+  photo.src = photos[0];
+
+  // Change photo every 3 seconds
+  const timer = setInterval(() => {
+    current++;
+
+    if (current >= photos.length) {
+      clearInterval(timer);
+
+      slideshow.style.display = "none";
+      final.style.display = "flex";
+      return;
+    }
 
     photo.src = photos[current];
-
-    const interval = setInterval(() => {
-        current++;
-
-        if (current >= photos.length) {
-            clearInterval(interval);
-            slideshow.style.display = "none";
-            final.style.display = "flex";
-            return;
-        }
-
-        photo.src = photos[current];
-
-    }, 3000);
-};
+  }, 3000);
+});
